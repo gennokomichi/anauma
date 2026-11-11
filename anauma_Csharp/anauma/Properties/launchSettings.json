@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "anauma": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
