@@ -22,6 +22,9 @@ internal sealed class JvLinkService
     // 通常RACEデータ取得
     // =========================================
 
+    /// <summary>
+    /// JV-Linkから通常のRACEデータを取得し、解析済みレコードをまとめて返します。
+    /// </summary>
     public JvReadResult ReadRaceData(
         string dataSpec,
         string fromTime,
@@ -74,6 +77,9 @@ internal sealed class JvLinkService
     // 速報単勝オッズ取得
     // =========================================
 
+    /// <summary>
+    /// 指定したRaceIDの速報単勝オッズをJV-Linkから取得します。未提供時は空の一覧を返します。
+    /// </summary>
     public List<O1Record> ReadRealtimeOdds(
         string raceId)
     {
@@ -124,6 +130,9 @@ internal sealed class JvLinkService
     // JVInit
     // =========================================
 
+    /// <summary>
+    /// JVInitを実行してJV-Linkを利用可能な状態に初期化します。
+    /// </summary>
     private static void Initialize(
         JVLinkClass jvLink)
     {
@@ -154,6 +163,9 @@ internal sealed class JvLinkService
     // 通常データ JVOpen
     // =========================================
 
+    /// <summary>
+    /// 通常データ取得用のJVOpenを実行し、読み込み対象ファイルを開きます。
+    /// </summary>
     private static void Open(
         JVLinkClass jvLink,
         string dataSpec,
@@ -226,6 +238,9 @@ internal sealed class JvLinkService
     //   → 3秒待って最大3回まで再試行
     // =========================================
 
+    /// <summary>
+    /// 速報オッズ取得用のJVRTOpenを実行します。一時エラー時は一定回数リトライします。
+    /// </summary>
     private static bool OpenRealtimeOdds(
         JVLinkClass jvLink,
         string raceId)
@@ -374,6 +389,9 @@ internal sealed class JvLinkService
     // 通常データ読み込み
     // =========================================
 
+    /// <summary>
+    /// JVRead/JVGetsで通常データを順番に読み込み、レコード種別ごとに解析して結果へ格納します。
+    /// </summary>
     private static void ReadRecords(
         JVLinkClass jvLink,
         JvReadResult readResult)
@@ -837,6 +855,9 @@ internal sealed class JvLinkService
     // O1発表日時表示
     // =========================================
 
+    /// <summary>
+    /// 速報オッズの発表日時をログ表示用の文字列へ整形します。
+    /// </summary>
     private static string FormatPublishedTime(
         DateTime? publishedAt)
     {
@@ -857,6 +878,9 @@ internal sealed class JvLinkService
     // O1データ区分表示
     // =========================================
 
+    /// <summary>
+    /// 速報オッズのデータ区分コードを表示用名称へ変換します。
+    /// </summary>
     private static string GetO1DataKubunName(
         int dataKubun)
     {
@@ -876,6 +900,9 @@ internal sealed class JvLinkService
     // JVGetsエラー
     // =========================================
 
+    /// <summary>
+    /// JV-Link読み込み中に返されたエラーコードを判定し、継続または例外化します。
+    /// </summary>
     private static void HandleReadError(
         JVLinkClass jvLink,
         int result,
@@ -924,6 +951,9 @@ internal sealed class JvLinkService
     // レコードヘッダー表示
     // =========================================
 
+    /// <summary>
+    /// 読み込んだレコードの種別やサイズなど、確認用ヘッダー情報をコンソールへ表示します。
+    /// </summary>
     private static void PrintRecordHeader(
         int count,
         string fileName,

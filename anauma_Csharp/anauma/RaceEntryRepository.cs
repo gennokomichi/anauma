@@ -7,6 +7,13 @@ internal sealed class RaceEntryRepository
     private readonly MySqlConnection _connection;
 
 
+    /// <summary>
+
+    /// 出走馬情報とオッズを保存するためのリポジトリを初期化します。
+
+
+    /// </summary>
+
     public RaceEntryRepository(
         MySqlConnection connection)
     {
@@ -18,6 +25,9 @@ internal sealed class RaceEntryRepository
     // 通常のSEレコード保存
     // =========================================
 
+    /// <summary>
+    /// SEレコードから出走馬情報をまとめてDBへ保存します。
+    /// </summary>
     public void SaveAll(
         IEnumerable<SeRecord> records)
     {
@@ -44,6 +54,9 @@ internal sealed class RaceEntryRepository
     // O1速報オッズをraceentriesへ反映
     // =========================================
 
+    /// <summary>
+    /// 速報O1レコードを使って、対象レースの単勝オッズと人気順を更新します。
+    /// </summary>
     public void UpdateOddsAndPopularity(
         O1Record o1)
     {
@@ -161,6 +174,9 @@ WHERE
     // SEレコード1件保存
     // =========================================
 
+    /// <summary>
+    /// 1頭分の出走情報をDBへ保存または更新します。
+    /// </summary>
     private void Save(
         SeRecord se)
     {
@@ -339,6 +355,9 @@ ON DUPLICATE KEY UPDATE
     // O1発表日時表示
     // =========================================
 
+    /// <summary>
+    /// O1レコードの発表日時をログ表示用の文字列へ整形します。
+    /// </summary>
     private static string FormatPublishedTime(
         DateTime? publishedAt)
     {
@@ -359,6 +378,9 @@ ON DUPLICATE KEY UPDATE
     // O1データ区分表示
     // =========================================
 
+    /// <summary>
+    /// O1のデータ区分コードを、人が読める名称へ変換します。
+    /// </summary>
     private static string GetO1DataKubunName(
         int dataKubun)
     {

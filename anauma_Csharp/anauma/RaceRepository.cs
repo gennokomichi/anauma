@@ -6,12 +6,18 @@ internal sealed class RaceRepository
 {
     private readonly MySqlConnection _connection;
 
+    /// <summary>
+    /// レース情報を保存するためのリポジトリを初期化します。
+    /// </summary>
     public RaceRepository(
         MySqlConnection connection)
     {
         _connection = connection;
     }
 
+    /// <summary>
+    /// 取得したRAレコードを順番にDBへ保存します。
+    /// </summary>
     public void SaveAll(
         IEnumerable<RaRecord> records)
     {
@@ -28,6 +34,9 @@ internal sealed class RaceRepository
             "races 保存完了！");
     }
 
+    /// <summary>
+    /// 1レース分の基本情報をDBへ保存または更新します。
+    /// </summary>
     private void Save(
         RaRecord ra)
     {

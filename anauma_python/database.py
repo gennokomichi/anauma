@@ -42,6 +42,7 @@ JOIN raceresults rr
 
 
 def create_db_engine() -> Engine:
+    """設定されたDATABASE_URLからSQLAlchemyのDBエンジンを作成する。"""
     return create_engine(DATABASE_URL)
 
 
@@ -56,6 +57,7 @@ def load_target_race_data(
     engine,
     target_date: str
 ) -> pd.DataFrame:
+    """指定日の出走馬データをMySQLから取得し、予測対象DataFrameとして返す。"""
 
     sql = """
     SELECT

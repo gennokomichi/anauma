@@ -15,6 +15,10 @@ namespace anauma
         // レコード種別
         // =========================================
 
+        /// <summary>
+        /// 固定長レコードの先頭2文字からレコード種別を取得します。
+
+        /// </summary>
         public static string GetRecordType(
             string record)
         {
@@ -33,6 +37,10 @@ namespace anauma
         // O1 単勝・複勝オッズ
         // =========================================
 
+        /// <summary>
+        /// O1固定長レコードを解析し、RaceID・発表時刻・単勝オッズ・人気をO1Recordへ変換します。
+
+        /// </summary>
         public static O1Record? ParseO1(
             byte[] data)
         {
@@ -295,6 +303,10 @@ namespace anauma
         // JG
         // =========================================
 
+        /// <summary>
+        /// JG固定長レコードを解析し、騎手情報をJgRecordへ変換します。
+
+        /// </summary>
         private static JgRecord ParseJG(
             byte[] data)
         {
@@ -474,6 +486,10 @@ namespace anauma
         // RA
         // =========================================
 
+        /// <summary>
+        /// RA固定長レコードを解析し、レース基本情報をRaRecordへ変換します。
+
+        /// </summary>
         public static RaRecord ParseRA(
             byte[] data)
         {
@@ -596,6 +612,10 @@ namespace anauma
         // SE
         // =========================================
 
+        /// <summary>
+        /// SE固定長レコードを解析し、出走馬・着順・馬体重などをSeRecordへ変換します。
+
+        /// </summary>
         public static SeRecord ParseSE(
             byte[] data)
         {
@@ -722,6 +742,10 @@ namespace anauma
         // byte[] → CP932文字列
         // =========================================
 
+        /// <summary>
+        /// 固定長バイト列から指定位置の文字列をCP932で安全に取り出します。
+
+        /// </summary>
         private static string GetString(
             byte[] data,
             int startIndex,
@@ -747,6 +771,10 @@ namespace anauma
         // バイト表示
         // =========================================
 
+        /// <summary>
+        /// 解析確認用に、指定範囲のバイト列と文字表現をコンソールへ表示します。
+
+        /// </summary>
         public static void ShowBytes(
             byte[] data)
         {

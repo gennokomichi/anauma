@@ -6,12 +6,18 @@ internal sealed class HorseRepository
 {
     private readonly MySqlConnection _connection;
 
+    /// <summary>
+    /// 馬マスタを保存するためのリポジトリを初期化します。
+    /// </summary>
     public HorseRepository(
         MySqlConnection connection)
     {
         _connection = connection;
     }
 
+    /// <summary>
+    /// SEレコードから得た馬情報をまとめて保存します。既存馬は更新し、新規馬は追加します。
+    /// </summary>
     public void SaveAll(
         IEnumerable<SeRecord> records)
     {
@@ -28,6 +34,9 @@ internal sealed class HorseRepository
             "horses 保存完了！");
     }
 
+    /// <summary>
+    /// 1頭分の馬情報をDBへ保存または更新します。
+    /// </summary>
     private void Save(
         SeRecord se)
     {

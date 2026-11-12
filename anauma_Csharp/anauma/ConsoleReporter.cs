@@ -4,6 +4,9 @@ namespace anauma;
 
 internal static class ConsoleReporter
 {
+    /// <summary>
+    /// 解析したRAレコードの内容を確認用にコンソールへ表示します。
+    /// </summary>
     public static void PrintRa(
         RaRecord ra)
     {
@@ -53,6 +56,9 @@ internal static class ConsoleReporter
             $"ダート馬場状態   : {ra.DirtConditionCode}");
     }
 
+    /// <summary>
+    /// 解析したSEレコードの内容を確認用にコンソールへ表示します。
+    /// </summary>
     public static void PrintSe(
         SeRecord se)
     {
@@ -96,6 +102,9 @@ internal static class ConsoleReporter
             $"単勝人気     : {se.WinPopularity}");
     }
 
+    /// <summary>
+    /// 取得・解析した各レコード件数を集計してコンソールへ表示します。
+    /// </summary>
     public static void PrintSummary(
         JvReadResult result)
     {

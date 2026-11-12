@@ -23,6 +23,9 @@ internal static class SafeArrayInterop
     private static extern uint SafeArrayUnaccessData(
         IntPtr pSafeArray);
 
+    /// <summary>
+    /// COMのSAFEARRAYからデータをコピーし、.NETのbyte配列として安全に返します。
+    /// </summary>
     public static byte[] CopyToByteArray(
         object objBuff,
         int length)

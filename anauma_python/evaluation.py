@@ -18,6 +18,7 @@ POPULARITY_GROUPS = [
 def print_historical_feature_check(
     df: pd.DataFrame
 ) -> None:
+    """過去成績系の特徴量が期待どおり計算されているか確認表示する。"""
 
     print()
     print("===== 過去成績特徴量 確認 =====")
@@ -52,6 +53,7 @@ def print_historical_feature_check(
 def print_track_type_check(
     df: pd.DataFrame
 ) -> None:
+    """TrackTypeとSurfaceの変換結果を確認表示する。"""
 
     print()
     print("===== TrackType確認 =====")
@@ -69,6 +71,7 @@ def print_data_split(
     test: pd.DataFrame,
     total: pd.DataFrame
 ) -> None:
+    """学習・テストデータの件数と対象期間を確認表示する。"""
 
     print()
     print("===== データ分割 =====")
@@ -108,6 +111,7 @@ def print_data_split(
 def print_feature_dtypes(
     df: pd.DataFrame
 ) -> None:
+    """モデルへ渡す特徴量のデータ型を一覧表示する。"""
 
     print()
     print(
@@ -123,6 +127,7 @@ def print_top_predictions(
     test: pd.DataFrame,
     top_n: int = 30
 ) -> None:
+    """予測値が高い馬を上位から表示し、モデル出力を確認する。"""
 
     result = test[
         [
@@ -158,6 +163,7 @@ def print_top_predictions(
 def evaluate_legacy_anauma(
     test: pd.DataFrame
 ) -> None:
+    """従来の穴馬抽出条件でテストデータを評価し、3着内率などを集計する。"""
 
     anauma = test[
         (test["Popularity"] >= 5)
@@ -239,6 +245,7 @@ def evaluate_legacy_anauma(
 def print_feature_importance(
     model
 ) -> None:
+    """LightGBMの特徴量重要度を高い順に表示する。"""
 
     importance = pd.DataFrame(
         {
@@ -271,6 +278,7 @@ def print_feature_importance(
 def print_baseline_comparison(
     test: pd.DataFrame
 ) -> None:
+    """人気薄全体とAI抽出馬を比較し、3着内率の改善度を確認する。"""
 
     # -----------------------------
     # AIなし
@@ -367,6 +375,7 @@ def print_baseline_comparison(
 def print_threshold_comparison(
     test: pd.DataFrame
 ) -> None:
+    """Predictionの閾値を変えたときの候補数と3着内率を比較する。"""
 
     print()
     print(
@@ -431,6 +440,7 @@ def print_threshold_comparison(
 def print_popularity_group_comparison(
     test: pd.DataFrame
 ) -> None:
+    """人気帯ごとにベースラインとAI抽出結果を比較する。"""
 
     print()
     print(
@@ -556,6 +566,7 @@ def run_monthly_backtest(
     min_popularity: int = 5,
     min_prediction: float = 0.30,
 ) -> pd.DataFrame:
+    """月単位で同じ抽出条件を適用し、期間ごとの再現性をバックテストする。"""
 
     print()
     print(

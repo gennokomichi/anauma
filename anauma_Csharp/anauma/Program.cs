@@ -7,6 +7,9 @@ namespace anauma;
 internal class Program
 {
     [STAThread]
+    /// <summary>
+    /// 競馬データ取得からDB保存、速報オッズ更新までの一連の処理を実行するエントリーポイントです。
+    /// </summary>
     private static void Main(string[] args)
     {
         Encoding.RegisterProvider(
@@ -354,6 +357,9 @@ internal class Program
     // → 2026-10-03
     // =========================================
 
+    /// <summary>
+    /// RaceIDなどの構成要素からレース日付を組み立て、妥当な場合だけDateTimeとして返します。
+    /// </summary>
     private static DateTime? TryBuildRaceDate(
         string year,
         string monthDay)

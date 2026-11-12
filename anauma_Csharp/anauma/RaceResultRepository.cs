@@ -6,12 +6,18 @@ internal sealed class RaceResultRepository
 {
     private readonly MySqlConnection _connection;
 
+    /// <summary>
+    /// レース結果を保存するためのリポジトリを初期化します。
+    /// </summary>
     public RaceResultRepository(
         MySqlConnection connection)
     {
         _connection = connection;
     }
 
+    /// <summary>
+    /// 取得したSEレコードから確定着順をまとめて保存します。
+    /// </summary>
     public void SaveAll(
         IEnumerable<SeRecord> records)
     {
@@ -28,6 +34,9 @@ internal sealed class RaceResultRepository
             "raceresults 保存完了！");
     }
 
+    /// <summary>
+    /// 1頭分の着順結果をDBへ保存または更新します。
+    /// </summary>
     private void Save(
         SeRecord se)
     {
